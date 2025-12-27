@@ -123,20 +123,21 @@ const [date, setDate] = useState("")
       </div>
 
       <div className="container mx-auto p-5 my-5 rounded-xl bg-violet-100 min-h-[80vh]">
-        <div className='addtodo'>
-          <h2 className='text-lg font-bold'>Add Task </h2>
-          <input onChange={handleChange} value={Todo} type="text " placeholder='Enter your task here ' className='md:w-4xl w-1/2 bg-amber-50' />
+        <div className='addtodo flex flex-col gap-3 md:flex-row'>
+          <h2 className='text-lg font-bold text-center md:text-start'>Add Task </h2>
+          <input onChange={handleChange} value={Todo} type="text " placeholder='Enter your task here ' className='md:w-4xl  bg-amber-50' />
+           
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="mx-2 bg-amber-50"
+            className="mx-2 bg-amber-50 "
           />
           <button onClick={handleAdd} disabled={Todo.length <= 3} className='bg-red-500 disabled:bg-violet-800  hover:bg-red-800  text-sm p-2 py-1 text-white font-bold rounded-md mx-6'> save  </button>
 
         </div>
 
-        <h2 className='text-lg font-bold'>Your Tasks</h2>
+        <h2 className='text-lg font-bold m-3'>Your Tasks</h2>
 
         <div className='flex gap-2'>
           <input onChange={toggleFinished} type="checkbox" name="" id="" />  <span>Show Finished    </span>
