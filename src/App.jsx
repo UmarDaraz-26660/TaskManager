@@ -41,8 +41,6 @@ const [date, setDate] = useState("")
 
   const handleCheckbox = (e) => {
 
-    console.log(e, e.target)
-
     let id = e.target.name;
     let index = Todos.findIndex(item => {
       return item.id === id;
@@ -60,15 +58,15 @@ const [date, setDate] = useState("")
 
 
 
-  const handleAdd = () => {
-    setTodos([...Todos, { id: uuidv4(), Todo,date, isCompleted: false }])             /*...Todos is tha way of adding previous todos in array using the spread operator */
-    setTodo("")
+const handleAdd = () => {
+  const newTodos = [...Todos, { id: uuidv4(), Todo, date, isCompleted: false }];
+  
+  setTodos(newTodos);
+  setTodo("");
+  setDate("");
+  localStorage.setItem("Todos", JSON.stringify(newTodos));
+};
 
-
-    // store in local storage 
-    saveTols();
-
-  }
 
   const handleEdit = (e, id) => {
     let T = Todos.filter(i => i.id === id)
@@ -93,7 +91,8 @@ const [date, setDate] = useState("")
 
 
     setTodos(newTodos)
-    saveTols()
+    localStorage.setItem("Todos", JSON.stringify(newTodos));
+    // saveTols()
 
 
 
