@@ -113,15 +113,7 @@ const handleAdd = () => {
     <>
       <Navbar />
 
-
-      <div className="container  mx-auto p-6">
-
-        <p className="text-center mt-4 text-lg">Manage your tasks efficiently and stay organized!</p>
-
-
-      </div>
-
-      <div className="container mx-auto p-5 my-5 rounded-xl bg-violet-100 min-h-[80vh]">
+        <div className="container mx-auto p-5 my-5 rounded-xl bg-violet-100 h-[60vh] overflow-y-auto">
         <div className='addtodo flex flex-col gap-3 md:flex-row'>
           <h2 className='text-lg font-bold text-center md:text-start'>Add Task </h2>
           <input onChange={handleChange} value={Todo} type="text " placeholder='Enter your task here ' className='md:w-4xl  bg-amber-50' />
@@ -149,7 +141,7 @@ const handleAdd = () => {
 
           {/* Todos with tasks  */}
           {Todos.map(item => {
-            return (showFinished || !item.isCompleted) && <div key={item.id} className="todo bg-white p-4 my-4 rounded-lg flex justify-between items-center ">
+            return (showFinished || !item.isCompleted) && <div key={item.id} className="todo bg-white p-4 my-4 rounded-lg flex justify-between items-center  ">
               <div className="todo flex gap-3">
                 <input onChange={handleCheckbox} type="checkbox" checked={item.isCompleted} name={item.id} id="" />
 
@@ -174,7 +166,13 @@ const handleAdd = () => {
 
 
       </div>
-      <Footer />
+  
+   
+
+
+      
+
+     
 
 
 
@@ -199,6 +197,15 @@ const handleAdd = () => {
 
 
 
+
+
+
+
+
+
+
+
+ <Footer />
     </>
   )
 }
